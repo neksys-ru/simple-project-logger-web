@@ -14,6 +14,7 @@ import Topbar from "../components/topbar";
 import Sidebar from "../components/sidebar";
 
 export default {
-  components: {Sidebar, Topbar}
+  components: {Sidebar, Topbar},
+  middleware:['auth'],
 }
 </script>
