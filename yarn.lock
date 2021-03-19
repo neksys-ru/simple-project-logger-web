@@ -1427,22 +1427,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/http@npm:^0.6.4":
-  version: 0.6.4
-  resolution: "@nuxt/http@npm:0.6.4"
-  dependencies:
-    "@nuxtjs/proxy": ^2.1.0
-    abort-controller: ^3.0.0
-    consola: ^2.15.0
-    defu: ^3.2.2
-    destr: ^1.0.1
-    ky: ^0.25.1
-    node-fetch: ^2.6.1
-    web-streams-polyfill: ^3.0.1
-  checksum: 47fb27b60069a6ad42d434082795e81576a9525f725af932cdfbead59f23ad5f499c56258eeb2d4bfd08baad4491dd2251350f332822d27b293b551d71660c98
-  languageName: node
-  linkType: hard
-
 "@nuxt/loading-screen@npm:^2.0.3":
   version: 2.0.3
   resolution: "@nuxt/loading-screen@npm:2.0.3"
@@ -1645,6 +1629,19 @@ __metadata:
     webpack-node-externals: ^2.5.2
     webpackbar: ^4.0.0
   checksum: 02faff9ae66371d4c234ad71f3046440063486f70ba1f19f1945663d17bcfc051efcbaa20a2e83a44220fdbf2c356bfbddea16b93d7de5c0ed385f78d1fc9038
+  languageName: node
+  linkType: hard
+
+"@nuxtjs/axios@npm:^5.13.1":
+  version: 5.13.1
+  resolution: "@nuxtjs/axios@npm:5.13.1"
+  dependencies:
+    "@nuxtjs/proxy": ^2.1.0
+    axios: ^0.21.1
+    axios-retry: ^3.1.9
+    consola: ^2.15.3
+    defu: ^3.2.2
+  checksum: eb60d2c1546d3bac683f3abc6c079fe6bd06742d09f31fa3a66d67e7bf4f7b4fcbfc45ad344e964dd4cd11e456dd3f2299e30189c28cfdcd9d7853e18265a4a3
   languageName: node
   linkType: hard
 
@@ -2146,11 +2143,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "SimpleProjectLoggerWeb@workspace:."
   dependencies:
-    "@nuxt/http": ^0.6.4
+    "@nuxtjs/axios": ^5.13.1
     "@nuxtjs/tailwindcss": ^4.0.1
+    cookie: ^0.4.1
+    js-cookie: ^2.2.1
+    ky-universal: ^0.9.1
     nuxt: ^2.15.3
     postcss: latest
     postcss-nested: ^5.0.5
+    vuex-persistedstate: ^4.0.0-beta.3
   languageName: unknown
   linkType: soft
 
@@ -2584,6 +2585,24 @@ __metadata:
   version: 1.11.0
   resolution: "aws4@npm:1.11.0"
   checksum: d30dce2b73839974894d8283a06c53e8374b74d643d3b08340d84c364e01158be011fcfd1a88f8462be946d69055313a3038202f2eafd155b039aaab3549ba21
+  languageName: node
+  linkType: hard
+
+"axios-retry@npm:^3.1.9":
+  version: 3.1.9
+  resolution: "axios-retry@npm:3.1.9"
+  dependencies:
+    is-retry-allowed: ^1.1.0
+  checksum: 1e6a4df3089bd08377734e2dcb58a6895b272ca9facd6e8b2d0388c342b31d39a1ec4592abe171d9f596bbab374fbc4de6e845d4eb6d7440c874e97933f29888
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.21.1":
+  version: 0.21.1
+  resolution: "axios@npm:0.21.1"
+  dependencies:
+    follow-redirects: ^1.10.0
+  checksum: 864fb7b5d077d236737f10adca53bf451a93f35a15271f56fba8da07265a02d26b7d881b935a6697dc6adb0549ea3e56d2eecb403edaa3bb78f6479901c10f69
   languageName: node
   linkType: hard
 
@@ -3618,6 +3637,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cookie@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "cookie@npm:0.4.1"
+  checksum: b8e0928e3e7aba013087974b33a6eec730b0a68b7ec00fc3c089a56ba2883bcf671252fc2ed64775aa1ca64796b6e1f6fdddba25a66808aef77614d235fd3e06
+  languageName: node
+  linkType: hard
+
 "cookies@npm:~0.8.0":
   version: 0.8.0
   resolution: "cookies@npm:0.8.0"
@@ -4066,6 +4092,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"data-uri-to-buffer@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "data-uri-to-buffer@npm:3.0.1"
+  checksum: 9f28217ba76eaca400a75f4b1a1d0f55058082c8152a3d88ad5feeec5e54b8c7b6d8a7bb210206bfa552a927c1b942b6102ddbb2feaa557321ea94762c4f14e2
+  languageName: node
+  linkType: hard
+
 "de-indent@npm:^1.0.2":
   version: 1.0.2
   resolution: "de-indent@npm:1.0.2"
@@ -4229,7 +4262,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"destr@npm:^1.0.0, destr@npm:^1.0.1, destr@npm:^1.1.0":
+"destr@npm:^1.0.0, destr@npm:^1.1.0":
   version: 1.1.0
   resolution: "destr@npm:1.1.0"
   checksum: df1c0ba5070dc035c2f7365d68c26eea4005ff39f9278305485d62307238485024c10e3949e637c760c99d912098b0ea103a04082bae68e36107e2d3a9942e6d
@@ -4854,6 +4887,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fetch-blob@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "fetch-blob@npm:2.1.1"
+  peerDependencies:
+    domexception: ^2.0.1
+  checksum: 29099bba2003e825d46ce3f251227fe67104d7422e39a2aa39e0d3db8f2a3346c41d928532482c4814b89086228209882fb531d00db6f79d0e80cc46d50b9b35
+  languageName: node
+  linkType: hard
+
 "figgy-pudding@npm:^3.5.1":
   version: 3.5.2
   resolution: "figgy-pudding@npm:3.5.2"
@@ -4999,7 +5041,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.10.0":
   version: 1.13.3
   resolution: "follow-redirects@npm:1.13.3"
   peerDependenciesMeta:
@@ -6247,6 +6289,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"is-retry-allowed@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "is-retry-allowed@npm:1.2.0"
+  checksum: 739384d2662f38fe0edd1bcdf7f88551c6f1b1fdc7fde3ba86442cd675d337f14100d6479bcbb4635f7e38d11e1a2c2e173a52ba39547631960641d9fbe65531
+  languageName: node
+  linkType: hard
+
 "is-ssh@npm:^1.3.0":
   version: 1.3.2
   resolution: "is-ssh@npm:1.3.2"
@@ -6379,6 +6428,13 @@ fsevents@~2.3.1:
   bin:
     jiti: bin/jiti.js
   checksum: 1a38ce04d2bf85b2f71a5f8d28bc45805e4d90ebfe9594bff17282e500eb76b24ba1010b4023a5c9fc65d561ac99f1f7301370b952a00c65f4389628c7795dee
+  languageName: node
+  linkType: hard
+
+"js-cookie@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "js-cookie@npm:2.2.1"
+  checksum: c110f78427cb7715f67c69df0b3430f7cf9dafb5ddb13014df171d4fb61ccda0b1caf9767412cde63cab4bad697a5d4ce83b0c2e7ec650ec9929ed70750d20ae
   languageName: node
   linkType: hard
 
@@ -6646,10 +6702,19 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"ky@npm:^0.25.1":
-  version: 0.25.1
-  resolution: "ky@npm:0.25.1"
-  checksum: af13618fd3d2d2cb18657dadec99381bd0be8ca7047079a12390ae0098a83e8a7defe980199ce3846dbbcc330bf6c418bb63b358a2af6d10b405ef0cebb7af1a
+"ky-universal@npm:^0.9.1":
+  version: 0.9.1
+  resolution: "ky-universal@npm:0.9.1"
+  dependencies:
+    abort-controller: ^3.0.0
+    node-fetch: 3.0.0-beta.9
+  peerDependencies:
+    ky: ">=0.26.0"
+    web-streams-polyfill: ">=3.0.1"
+  peerDependenciesMeta:
+    web-streams-polyfill:
+      optional: true
+  checksum: 424e6e57e7fea8d7e3e8e16e6586a21c0bd6dc7b8036f89f6e3506bbe63e6b133a321c7a23efbc96023b6b6ff090260d636d32a9586145579b2ae8d45aa382cc
   languageName: node
   linkType: hard
 
@@ -7382,6 +7447,16 @@ fsevents@~2.3.1:
   dependencies:
     lodash.toarray: ^4.4.0
   checksum: 9c73cd0af03965131225c388339ec5cb3b7239f9d63f15c7755540d265b20a4ecac855fd270af216fb14cdf8232ec4687ab5a52b4b475a681ee1bd74f7562ced
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:3.0.0-beta.9":
+  version: 3.0.0-beta.9
+  resolution: "node-fetch@npm:3.0.0-beta.9"
+  dependencies:
+    data-uri-to-buffer: ^3.0.1
+    fetch-blob: ^2.1.1
+  checksum: e1b71946805b6dbe44394df4dcd7287bb18c2d93bb5b1d41de24c5d87bc3ec28be5e7ec0601dfc93a62d41c05a25dc5f7c0804912e2c11bfbb23252c8ff2a155
   languageName: node
   linkType: hard
 
@@ -10094,6 +10169,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"shvl@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "shvl@npm:2.0.2"
+  checksum: 46f5f2f73a16c48b25783050d1e1556587286d87c8db6e5e7c55d761f0554518c9a21ab7af774a2d364d9ddcf8951b1327d80a82ef275b54a83e6d5f6b301d7b
+  languageName: node
+  linkType: hard
+
 "signal-exit@npm:^3.0.0, signal-exit@npm:^3.0.2, signal-exit@npm:^3.0.3":
   version: 3.0.3
   resolution: "signal-exit@npm:3.0.3"
@@ -11432,6 +11514,18 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"vuex-persistedstate@npm:^4.0.0-beta.3":
+  version: 4.0.0-beta.3
+  resolution: "vuex-persistedstate@npm:4.0.0-beta.3"
+  dependencies:
+    deepmerge: ^4.2.2
+    shvl: ^2.0.2
+  peerDependencies:
+    vuex: ^3.0 || ^4.0.0-rc
+  checksum: c39115949b6aaba54a388c90a2cd48c8cc1001211c70d45b6cf520593a6f6f31e951bba9ee1de58432a1fb0e7ddc2fb82ac15ac182d86543b97de7400c7ea11e
+  languageName: node
+  linkType: hard
+
 "vuex@npm:^3.6.2":
   version: 3.6.2
   resolution: "vuex@npm:3.6.2"
@@ -11464,13 +11558,6 @@ fsevents@~2.3.1:
     watchpack-chokidar2:
       optional: true
   checksum: 93bb20dd955adf48daca67e6906ff9518f181e83d2183038e9a2573549a0d4badd23672d3ac542be9d5b766bd27da4baebba5d2d2522a7e05575c7cf7702c60b
-  languageName: node
-  linkType: hard
-
-"web-streams-polyfill@npm:^3.0.1":
-  version: 3.0.2
-  resolution: "web-streams-polyfill@npm:3.0.2"
-  checksum: bfeaaa1b84b362134c7644f86fe644a7c53fd3c314c1cd6a4ab796d2610e77dae0c4f24e06212358aa704b552c7d6220fd58123c9fb315ad66ef34fb41d0de7f
   languageName: node
   linkType: hard
 

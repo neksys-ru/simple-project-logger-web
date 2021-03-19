@@ -11,6 +11,7 @@
         <p
             class="text-gray-700 text-base"
         >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
+        <p>Проверить рефреш? <a @click.prevent="refresh" class="underline font-semibold">Обновить</a></p>
       </div>
       <div class="px-6 py-4">
         <span class="badge mr-2">#photography</span>
@@ -18,12 +19,21 @@
         <span class="badge">#winter</span>
       </div>
     </div>
-    <NuxtLink to="about">
-      <TButton>About</TButton>
-    </NuxtLink>
   </div>
 </template>
-
+<script>
+export default {
+  name:"indexPageComponent",
+  methods:{
+    async refresh(){
+      await this.$store.dispatch('auth/refresh')
+      //this.$router.push('/');;
+      /*console.log(this.loginObj);
+      console.log("Nice try");*/
+    }
+  }
+}
+</script>
 <style lang="postcss" scoped>
 .badge {
   @apply inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700;

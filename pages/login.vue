@@ -5,7 +5,7 @@
     <div class="w-full md:w-1/2 flex flex-col">
 
       <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
-        <a href="#" class="bg-black text-white font-bold text-xl p-4">Logo</a>
+        <a href="#" class="bg-black text-white font-bold text-xl p-4">SPL</a>
       </div>
 
       <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
@@ -25,6 +25,7 @@
         </form>
         <div class="text-center pt-12 pb-12">
           <p>Нет аккаунта? <NuxtLink to="/register" class="underline font-semibold">Зарегистрироваться</NuxtLink></p>
+
         </div>
       </div>
 
@@ -50,10 +51,13 @@ export default {
     }
   },
   methods:{
-    login(){
-      console.log(this.loginObj);
-      console.log("Nice try");
-    }
+    async login(){
+      await this.$store.dispatch('auth/login', this.loginObj)
+      this.$router.push('/');;
+      /*console.log(this.loginObj);
+      console.log("Nice try");*/
+    },
+
   },
 }
 </script>
