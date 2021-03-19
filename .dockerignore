@@ -1,0 +1,7 @@
+.nuxt
+.nuxt/*
+.yarn
+.yarn/*
+node_modules
+node_modules/*
+.git
