@@ -15,6 +15,7 @@ import Sidebar from "../components/sidebar";
 
 export default {
   components: {Sidebar, Topbar},
-  middleware:['auth'],
+  //TODO uncomment as finish styling
+  //middleware:['auth'],
 }
 </script>
