@@ -27,6 +27,5 @@ export default {
   }
   //TODO uncomment as finish styling
   //middleware:['auth'],
-  //TODO add  hiding of bar
 }
 </script>
