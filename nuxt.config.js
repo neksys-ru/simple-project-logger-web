@@ -1,6 +1,7 @@
 export default {
     modules: [
-        '@nuxtjs/axios'
+        '@nuxtjs/axios',
+        'nuxt-validate',
     ],
     plugins: [
         '~/plugins/local-storage',
@@ -14,6 +15,9 @@ export default {
     },
     axios: {
         baseURL: 'https://localhost:44347/api', // Used as fallback if no runtime config is provided
+    },
+    nuxtValidate:{
+        lang:'ru',
     },
     head: {
         title: 'Simple Project Logger',
