@@ -1,11 +1,11 @@
 export default {
     modules: [
         '@nuxtjs/axios',
-        'nuxt-validate',
     ],
     plugins: [
         '~/plugins/local-storage',
         '~/plugins/axios',
+        '~/plugins/validate',
     ],
     buildModules: [
         '@nuxtjs/tailwindcss',
@@ -18,6 +18,11 @@ export default {
     },
     nuxtValidate:{
         lang:'ru',
+        nuxti18n: {
+            locale: {
+                'ru': 'ru'
+            }
+        }
     },
     head: {
         title: 'Simple Project Logger',
@@ -31,6 +36,13 @@ export default {
             }
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    },
+    build: {
+        // Add exception
+        transpile: [
+            "vee-validate/dist/rules"
+        ],
+
     }
 
 }
