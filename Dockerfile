@@ -4,9 +4,9 @@ RUN mkdir -p /var/www/app
 WORKDIR /var/www/app
 # update and install dependency
 RUN apk update && apk upgrade
-RUN npm install -g yarn
+#RUN npm install -g yarn
 # copy project and instal dependancy
-COPY . /usr/src/nuxt-app/
+COPY . /var/www/app
 RUN yarn install
 # build via npm
 RUN yarn build

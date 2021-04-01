@@ -1,7 +1,7 @@
 .nuxt
 .nuxt/*
-.yarn
-.yarn/*
+.yarn/cache
+.yarn/unplugged
 node_modules
 node_modules/*
 .git

@@ -3,6 +3,5 @@
 .yarn
 .yarn/*
 .idea
-.idea/*
 node_modules
 node_modules/*
