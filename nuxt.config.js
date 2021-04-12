@@ -14,7 +14,7 @@ export default {
         jit: true
     },
     axios: {
-        baseURL: 'https://localhost:44347/api', // Used as fallback if no runtime config is provided
+        baseURL: 'http://localhost:5000/api', // Used as fallback if no runtime config is provided
     },
     nuxtValidate:{
         lang:'ru',

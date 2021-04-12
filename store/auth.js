@@ -50,17 +50,17 @@ export const actions = {
         commit(AUTH_MUTATIONS.SET_PAYLOAD, {access_token:data.access_token,refresh_token:data.refresh_token})
     },
 
-    /*async register ({ commit }, { email_addr, password }) {
+    async register ({ commit }, dataObject) {
         // make an API call to register the user
-        const { data: { data: { user, payload } } } = await this.$axios.post(
+        const { data } = await this.$axios.post(
             '/auth/register',
-            { email_address, password }
+            dataObject
         )
 
         // commit the user and tokens to the state
-        commit(AUTH_MUTATIONS.SET_USER, user)
-        commit(AUTH_MUTATIONS.SET_PAYLOAD, payload)
-    },*/
+        commit(AUTH_MUTATIONS.SET_USER, {id:data.user_id,email_address:data.username})
+        commit(AUTH_MUTATIONS.SET_PAYLOAD, {access_token:data.access_token,refresh_token:data.refresh_token})
+    },
 
     // given the current refresh token, refresh the user's access token to prevent expiry
     async refresh ({ commit, state }) {

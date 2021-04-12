@@ -4,40 +4,23 @@
     <!-- Register Section -->
     <div class="w-full md:w-1/2 flex flex-col">
 
-      <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-12">
-        <a href="#" class="bg-black text-white font-bold text-xl p-4">Logo</a>
+      <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
+        <NuxtLink to="/" class="bg-black text-white font-bold text-xl p-4">SPL</NuxtLink>
       </div>
 
       <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
         <p class="text-center text-3xl">Присоединяйтесь.</p>
-        <form class="flex flex-col pt-3 md:pt-8" onsubmit="event.preventDefault();">
-          <div class="flex flex-col pt-4">
-            <label for="name" class="text-lg">Имя</label>
-            <input type="text" id="name" placeholder="John Smith"
-                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
-          </div>
+        <ValidationObserver ref="registerForm" v-slot="{ handleSubmit }">
+          <form class="flex flex-col pt-3 md:pt-8" @submit.prevent="handleSubmit(register)">
+            <InputComponent validate="required" type="text" name="name" label="Имя" placeholder="Иван" v-model="userData.name"></InputComponent>
+            <InputComponent validate="required|email" type="email" name="email" label="Email" placeholder="example@gg.com" v-model="userData.email"></InputComponent>
+            <InputComponent validate="required|min:8" type="password" name="password" label="Пароль"  v-model="userData.password"></InputComponent>
+            <InputComponent validate="required|password:@password" type="password" name="confirm" label="Подтверждение пароля"  v-model="confirm"></InputComponent>
 
-          <div class="flex flex-col pt-4">
-            <label for="email" class="text-lg">Email</label>
-            <input type="email" id="email" placeholder="your@email.com"
-                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
-          </div>
-
-          <div class="flex flex-col pt-4">
-            <label for="password" class="text-lg">Пароль</label>
-            <input type="password" id="password" placeholder="Password"
-                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
-          </div>
-
-          <div class="flex flex-col pt-4">
-            <label for="confirm-password" class="text-lg">Подтвердить пароль</label>
-            <input type="password" id="confirm-password" placeholder="Password"
-                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
-          </div>
-
-          <input type="submit" value="Зарегистрироваться"
-                 class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
-        </form>
+            <input type="submit" value="Зарегистрироваться"
+                   class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
+          </form>
+        </ValidationObserver>
         <div class="text-center pt-12 pb-12">
           <p>Уже есть аккаунт?
             <NuxtLink to="/login" class="underline font-semibold">Войти</NuxtLink>
@@ -54,8 +37,37 @@
   </div>
 </template>
 <script>
+import InputComponent from "@/components/util/input";
+import {ValidationObserver} from "vee-validate"
+
 export default {
-  name:'RegisterComponent',
+  name: 'RegisterComponent',
+  components: {
+    ValidationObserver,
+    InputComponent,
+  },
+  data() {
+    return {
+      userData: {
+        name: "",
+        email: "",
+        password: "",
+      },
+      confirm:"",
+    }
+  },
   layout: 'auth',
+  methods: {
+    async register() {
+      try{
+        await this.$store.dispatch('auth/register',this.userData)
+        this.$router.push('/');
+      }catch (err){
+        this.$refs.registerForm.setErrors(err.response.data);
+      }
+      //this.$router.push('/');
+
+    },
+  },
 }
 </script>

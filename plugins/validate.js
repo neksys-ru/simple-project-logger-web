@@ -12,6 +12,13 @@ Object.keys(rules).forEach(rule => {
         message:ru.messages[rule]
     });
 });
+extend('password', {
+    params: ['target'],
+    validate(value, { target }) {
+        return value === target;
+    },
+    message: 'Должен совпадать с подтверждением'
+});
 //
 // Vue.component('ValidationObserver',ValidationObserver);
 // Vue.component('ValidationProvider',ValidationProvider);

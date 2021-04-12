@@ -1,5 +1,5 @@
 <template>
-  <ValidationProvider :rules="validate" v-slot="{invalid,valid,errors}">
+  <ValidationProvider :name="name" :rules="validate" v-slot="{invalid,valid,errors}">
     <div class="flex flex-col pt-4">
       <label :for="name" class="text-lg">{{ label }}</label>
       <input :type="type"
