@@ -1,18 +1,26 @@
 <template>
-  <ul>
-    <li v-for="(role,index) in roles" :key="`role_${index}`">
-      {{role.name}} - {{role.order}}
-    </li>
-  </ul>
+  <table-component :headers="headers" :data="dataForTable"></table-component>
 </template>
 <script>
+import tableComponent from '@/components/util/table'
 export default {
   name:"RoleList",
   layout:'app',
+  components:{
+    tableComponent,
+  },
   data(){
     return {
       roles:[],
+      headers:['Роль','Порядок','Действие'],
     }
+  },
+  computed:{
+    dataForTable(){
+      return this.roles.map((el)=>{
+        return {name:el.name,order:el.order,action:''}
+      })
+    },
   },
   async fetch(){
     try{
