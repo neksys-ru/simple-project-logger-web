@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/proxy": "^2.1.0",
     "cookie": "^0.4.1",
     "js-cookie": "^2.2.1",
     "ky-universal": "^0.9.1",

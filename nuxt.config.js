@@ -1,6 +1,7 @@
 export default {
     modules: [
         '@nuxtjs/axios',
+        '@nuxtjs/proxy',
     ],
     plugins: [
         '~/plugins/local-storage',
@@ -14,7 +15,12 @@ export default {
         jit: true
     },
     axios: {
-        baseURL: 'http://localhost:5000/api', // Used as fallback if no runtime config is provided
+        prefix:'/api/',
+        //baseURL: 'http://localhost:5000/api', // Used as fallback if no runtime config is provided
+        proxy:true,
+    },
+    proxy:{
+        '/api': 'http://localhost:5000',
     },
     nuxtValidate:{
         lang:'ru',
